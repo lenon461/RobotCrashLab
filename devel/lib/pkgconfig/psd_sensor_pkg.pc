@@ -1,0 +1,8 @@
+prefix=/home/group1/catkin_ws/devel
+
+Name: psd_sensor_pkg
+Description: Description of psd_sensor_pkg
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/group1/catkin_ws/devel/lib 
+Requires: 

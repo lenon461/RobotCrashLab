@@ -1,0 +1,2 @@
+DynamixelSDK/ros:cat_main:catmessage:donation_bot/robot1:dyna_read_write:my_dynamixel_workbench_tutorial:psd_sensor_pkg:ult_sensor_pkg
+-DCATKIN_DEVEL_PREFIX=/home/group1/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/group1/catkin_ws/install -G Unix Makefiles

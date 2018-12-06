@@ -1,0 +1,8 @@
+prefix=/home/group1/catkin_ws/install
+
+Name: dyna_read_write
+Description: Description of dyna_read_write
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/group1/catkin_ws/install/lib -ldyna_read_write
+Requires: roscpp std_msgs

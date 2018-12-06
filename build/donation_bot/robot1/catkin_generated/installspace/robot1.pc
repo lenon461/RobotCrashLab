@@ -1,0 +1,8 @@
+prefix=/home/group1/catkin_ws/install
+
+Name: robot1
+Description: Description of robot1
+Version: 0.0.0
+Cflags: -I/home/group1/catkin_ws/install/include
+Libs: -L/home/group1/catkin_ws/install/lib 
+Requires: roscpp std_msgs

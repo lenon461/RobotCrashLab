@@ -1,0 +1,62 @@
+#include <ros/ros.h>
+#include <std_msgs/Int16.h>
+#include <wiringPi.h>
+ 
+#define ECHO 4 //GPIO 23
+#define TRIG 5 //GPIO 24
+
+void init(){
+
+    //init
+    pinMode(TRIG,OUTPUT);
+    pinMode(ECHO,INPUT);
+    digitalWrite(TRIG,LOW);
+    delay(500);  //500밀리초 만큼 sleep
+
+}
+
+float distance(){
+ 
+    //on
+    digitalWrite(TRIG,HIGH);
+    usleep(20); //20마이크로초만큼 sleep
+    digitalWrite(TRIG,LOW);
+    //off
+
+    while (digitalRead(ECHO) == LOW);
+
+    float starttime = micros(); // 마이크로초
+    while (digitalRead(ECHO) == HIGH);
+    float endtime = micros();
+    
+    float travelTimeUsec = endtime - starttime;
+    float distanceMeters = 100*((travelTimeUsec/1000000.0)*340.29)/2;
+
+    return distanceMeters;
+    
+}
+
+int main(int argc, char** argv)
+{
+    ros::init(argc, argv, "ult_sensor_pub");
+    ros::NodeHandle nh;
+
+    ros::Publisher ult_sensor_pub = nh.advertise<std_msgs::Int16>("ult_distance_msg", 10);
+
+    ros::Rate loop_rate(10);
+    std_msgs::Int16 ult_distance;
+    wiringPiSetup();
+    
+    init();
+
+    while(ros::ok())
+    {
+        int ult_distance = (int)distance();
+         
+        ROS_INFO("send ult_distance_msg = %d", ult_distance);
+        ult_sensor_pub.publish(ult_distance);
+
+        usleep(100);
+        ros::spinOnce();
+    }
+}

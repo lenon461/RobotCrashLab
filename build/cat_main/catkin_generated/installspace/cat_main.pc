@@ -1,0 +1,8 @@
+prefix=/home/group1/catkin_ws/install
+
+Name: cat_main
+Description: Description of cat_main
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/group1/catkin_ws/install/lib 
+Requires: 

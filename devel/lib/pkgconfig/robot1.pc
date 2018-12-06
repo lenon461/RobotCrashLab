@@ -1,0 +1,8 @@
+prefix=/home/group1/catkin_ws/devel
+
+Name: robot1
+Description: Description of robot1
+Version: 0.0.0
+Cflags: -I/home/group1/catkin_ws/devel/include -I/home/group1/catkin_ws/src/donation_bot/robot1/include
+Libs: -L/home/group1/catkin_ws/devel/lib 
+Requires: roscpp std_msgs

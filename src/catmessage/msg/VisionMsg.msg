@@ -1,0 +1,2 @@
+string center
+string width
